@@ -6,56 +6,74 @@
 }
 
 body {
-    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
-    height: 100vh;
+    background: linear-gradient(#5A1E8A 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
-
 body::before {
-    background-image: url("img/code.png");
-    background-repeat: no-repeat;
-    background-position: right;
     content: "";
-    display: block;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    background-image: url("img/code.png");
+    background-repeat: repeat;
+    background-position: center;
     opacity: 0.4;
+    z-index: 0;
 }
 
 .container {
     width: 80%;
-    height: 80%;
+    max-width: 1200px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 24px;
-    border: 1px solid #1875E8;
+    border: 1px solid #050505;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
     background-image: url("img/Ruido.png");
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
+    z-index: 1;
+    overflow: hidden;
+    
 }
-
 
 .container__conteudo {
     display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
 }
 
 .container__informacoes {
     flex: 1;
     padding: 3rem;
+    z-index: 2;
+}
+
+.container__imagem-pessoa {
+    display: block;
+    height: 100%;
+    max-height: 650px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-end;
+    margin-bottom: -20px;
+    filter: drop-shadow(0 0 20px #5A1E8A);
 }
 
 .container__botao {
     border-radius: 16px;
-    background: #1875E8;
+    background: #260244;
     padding: 16px 24px;
     width: 100%;
     font-size: 24px;
@@ -65,11 +83,11 @@ body::before {
 }
 
 .container__texto {
-    margin: 16px 0 16px 0;
+    margin: 16px 0;
 }
 
 .container__texto-azul {
-    color: #1875E8;
+    color: #1E0F32;
 }
 
 .container__input {
@@ -78,7 +96,7 @@ body::before {
     border-radius: 16px;
     background-color: #FFF;
     border: none;
-    color: #1875E8;
+    color: #1E0F32;
     padding: 2rem;
     font-size: 24px;
     font-weight: 700;
@@ -111,6 +129,10 @@ button:disabled {
 }
 
 @media screen and (max-width: 1250px) {
+    .container {
+        width: 90%;
+        min-height: auto;
+    }
 
     h1 {
         font-size: 50px;
@@ -119,7 +141,6 @@ button:disabled {
     .container__botao {
         font-size: 16px;
     }
-
 
     .texto__paragrafo {
         font-size: 24px;
@@ -131,10 +152,9 @@ button:disabled {
 
     .container__conteudo {
         display: block;
-        position: inherit;
     }
 
     .container__informacoes {
-        padding: 1rem
+        padding: 2rem;
     }
 }
